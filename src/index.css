@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: 'Sansita One';
+  src: url('/src/assets/SansitaOne.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary-bg: #231F42;
+  --pink-accent: #F56B9A;
+  --green-accent: #37AEAB;
+  --gradient: linear-gradient(180deg, #F56B9A 0%, rgba(177, 52, 254, 0) 100%);
+  --title-font: 'Sansita One', sans-serif;
+  --bread-font: 'Fira Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: var(--primary-bg);
+  color: white;
+  font-family: var(--bread-font);
+  position: relative;
+  left: calc((100vw - 100%) / 2);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 1rem;
+}
