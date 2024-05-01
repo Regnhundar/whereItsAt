@@ -11,9 +11,13 @@
   --primary-bg: #231F42;
   --pink-accent: #F56B9A;
   --green-accent: #37AEAB;
+
   --gradient: linear-gradient(180deg, #F56B9A 0%, rgba(177, 52, 254, 0) 100%);
+
   --title-font: 'Sansita One', sans-serif;
   --bread-font: 'Fira Sans', sans-serif;
+
+  --border-radius: 3px;
 }
 
 * {
@@ -28,15 +32,25 @@ body {
   background-color: var(--primary-bg);
   color: white;
   font-family: var(--bread-font);
-  position: relative;
-  left: calc((100vw - 100%) / 2);
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  padding: 0 1rem;
+  padding: 2.1rem 2rem 5rem 2rem;
+}
+
+.page-title {
+  color: var(--pink-accent);
+  font-family: var(--title-font);
+  font-weight: 500;
+}
+
+@media screen and (max-width: 350px){
+  .wrapper {
+    padding: 2.1rem 1rem;
+  }
+  
 }

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: calc(100vh - 3rem);
+    height: calc(100vh - 7.5rem);
 }
 
 .logo__inner-wrapper {
@@ -34,7 +34,7 @@
     font-style: italic;
 }
 
-@media screen and (min-width: 475px){
+@media screen and (min-width: 420px){
     .logo__image {
         width:14rem;
     }
