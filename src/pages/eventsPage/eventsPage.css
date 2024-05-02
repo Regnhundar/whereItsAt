@@ -22,3 +22,7 @@
     row-gap: 1rem;
     width: 100%;
 }
+
+.event-highlight {
+    color: var(--pink-accent)
+}

@@ -25,8 +25,9 @@ function EventsPage() {
     }, []);
 
     useEffect(() => {
+
         const filteredEvents = events.filter(event => event.name.toLowerCase().includes(searchInput.toLowerCase()));
-        
+
         if (searchInput.length > 1) {
             setEvents(filteredEvents);
         } else {
@@ -53,17 +54,20 @@ function EventsPage() {
                 onChange={handleInputChange}
                 value={searchInput}
             />
-            <ul className="event-list">
-                {Array.isArray(events) && events.map((event, index) => {
-                    return (
-                        <Event
-                            key={event.name}
-                            object={event}
-                            index={index}
-                        />
-                    )
-                })}
-            </ul>
+            {events.length === 0 ? (
+                <h2><span className="event-highlight">{searchInput} </span>matched no event.</h2>)
+                : (
+                    <ul className="event-list">
+                        {Array.isArray(events) && events.map((event, index) => {
+                            return (
+                                <Event
+                                    key={event.name}
+                                    object={event}
+                                    index={index}
+                                />
+                            )
+                        })}
+                    </ul>)}
         </>
     )
 }
