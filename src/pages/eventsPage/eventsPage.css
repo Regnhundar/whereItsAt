@@ -8,10 +8,13 @@
     color: white;
     padding: 0 1rem;
     accent-color: white;
-    margin: 2rem 0;
+    margin-bottom: 2rem;
+    background-image: url(../../assets/search.svg);
+    background-repeat: no-repeat;
+    background-position: 1rem;
 }
-.event-search::-webkit-search-cancel-button {
-    color: white;
+.event-search:focus {
+    background-image: none;
 }
 .event-list {
     display: flex;

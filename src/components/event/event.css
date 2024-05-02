@@ -3,8 +3,9 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
-    column-gap: 2rem;
-    row-gap: .3rem;
+    column-gap: 1.5rem;
+    cursor: pointer;
+
 }
 
 .event__date {
@@ -17,11 +18,18 @@
     justify-content: center;
     align-items: center;
     align-self: center;
-    justify-self: center;
     text-align: center;
-    padding: 1rem;
+    padding: 1.3rem;
     font-size: .75rem;
 
+}
+
+.event_inner-wrapper {
+    grid-column: span 3;
+    display: grid;
+    row-gap: .1rem;
+    border-bottom: 1px solid #FFFFFF4D;
+    padding-bottom: .3rem;
 }
 
 .event__title {
@@ -32,7 +40,7 @@
 }
 
 .event__location {
-    grid-column: 2 / span 3;
+    grid-column: 1 / span 3;
     grid-row: 2/3;
     font-size: .75rem;
     font-style: italic;
@@ -41,17 +49,18 @@
 }
 
 .event__time {
-    grid-column: 2 / span 3;
+    grid-column: 1 / span 3;
     grid-row: 3/4;
     font-size: .875rem;
     color: #D0D0D0;
+    align-self: end;
 }
 
 .event__price {
     font-size: 1.1rem;
     font-weight: bold;
     color: var(--green-accent);
-    grid-column: 3 / 5;
+    grid-column: 3 / 4;
     grid-row: 3/4;
     align-self: end;
     justify-self: end;
