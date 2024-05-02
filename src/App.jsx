@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
 import LandingPage from './pages/landingPage/LandingPage';
 import EventsPage from './pages/eventsPage/EventsPage';
 import EventPage from './pages/eventPage/EventPage';
