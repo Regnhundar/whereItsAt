@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation  } from 'react-router-dom';
 import LandingPage from './pages/landingPage/LandingPage';
 import EventsPage from './pages/eventsPage/EventsPage';
 import EventPage from './pages/eventPage/EventPage';
@@ -7,7 +7,8 @@ import TicketsPage from './pages/ticketsPage/TicketsPage';
 import Navigation from './components/navigation/Navigation';
 
 function App() {
-
+  
+  const location = useLocation();
 
   return (
     <>
@@ -18,7 +19,7 @@ function App() {
         <Route path='/checkout' element={<CheckoutPage />} />
         <Route path='/tickets' element={<TicketsPage />} />
       </Routes>
-      <Navigation />
+      {location.pathname !== '/' && <Navigation />}
     </>
   )
 }
