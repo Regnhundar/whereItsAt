@@ -12,8 +12,8 @@ function Event({ object, index }) {
     const navigate = useNavigate();
 
     const goToEvent = (index) => {
-        setEvent(object);
-        sessionStorage.setItem("event", JSON.stringify(object));
+        setEvent({...object, quantity: 1});
+        sessionStorage.setItem("event", JSON.stringify({...object, quantity: 1}));
         navigate(`/event/${index+1}`);
     }
     

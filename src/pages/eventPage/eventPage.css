@@ -6,14 +6,21 @@
     max-width: 20ch;
     text-align: center;
 }
+.event-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
 
+}
 .event-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     row-gap: .5rem;
-    margin: 3rem 0;
+    margin: 3rem 0 7rem 0;
 }
 
 .event-info__title {

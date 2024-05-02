@@ -54,7 +54,7 @@ function EventsPage() {
                 onChange={handleInputChange}
                 value={searchInput}
             />
-            {events.length === 0 ? (
+            {events.length === 0 && searchInput.length > 1 ? (
                 <h2><span className="event-highlight">{searchInput} </span>matched no event.</h2>)
                 : (
                     <ul className="event-list">
