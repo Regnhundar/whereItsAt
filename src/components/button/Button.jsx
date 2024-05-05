@@ -1,9 +1,17 @@
-import "./button.css"
+import "./button.css";
 
-function Button({ text = "Button", onClick = (event) => {event.preventDefault(); console.log(`You clicked: ${text}`)} }) {
+function Button({
+  text = "Button",
+  onClick = (event) => {
+    event.preventDefault();
+    console.log(`You clicked: ${text}`);
+  },
+}) {
   return (
-    <button className="button" onClick={onClick}>{text}</button>
-  )
+    <button className="button" onClick={onClick}>
+      {text}
+    </button>
+  );
 }
 
-export default Button
+export default Button;

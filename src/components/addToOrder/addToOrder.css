@@ -7,7 +7,7 @@
 
 .ticket-purchase__inner-wrapper {
     grid-column: 2 / span 5;
-    border: 3px solid var(--pink-accent);
+    border: 2px solid var(--pink-accent);
     border-radius: var(--border-radius);
     margin-bottom: 4.2rem;
 }
