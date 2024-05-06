@@ -1,0 +1,21 @@
+.orders {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.order-subtitle {
+  font-size: 1.1875rem;
+  font-weight: 400;
+  color: #ffffffcc;
+  font-style: italic;
+}
+.order-total {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1px 1px var(--pink-accent);
+  margin: 1.5rem 0;
+}

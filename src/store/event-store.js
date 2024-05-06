@@ -25,7 +25,7 @@ const useEventStore = create((set) => ({
         set({ events: response.data.events });
       })
       .catch((error) => {
-        console.log(error);
+        console.log("Error at getEvents", error);
       });
   },
   getEvent: (id) => {

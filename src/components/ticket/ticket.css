@@ -1,0 +1,123 @@
+.ticket {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-radius: var(--border-radius);
+  box-shadow: 0px 0px 32px 0px #00000057;
+  background-color: white;
+  color: #000000b2;
+}
+.ticket:last-of-type {
+    margin-bottom: 2rem;
+}
+
+/* Den här selektorn väljer alla element inuti föräldern men inte föräldern själv */
+.ticket :not(:root) {
+  padding-left: 1rem;
+}
+.ticket__title {
+  padding-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #00000066;
+  grid-column: 1/-1;
+}
+.ticket__title:first-of-type {
+  padding-top: 0.5rem;
+}
+.ticket__title:nth-of-type(2) {
+  background-color: #00000008;
+}
+
+.ticket__title--first {
+  grid-column: 1 / span 1;
+  grid-row: 5/6;
+}
+.ticket__title--second {
+  grid-column: 2 / span 1;
+  grid-row: 5/6;
+  border-left: dotted 1px #00000066;
+  border-right: dotted 1px #00000066;
+}
+
+.ticket__title--third {
+  grid-column: 3 / span 1;
+  grid-row: 5/6;
+}
+
+.ticket__title--first,
+.ticket__title--second,
+.ticket__title--third {
+  background-color: #0000000f;
+}
+
+.ticket__event {
+  color: var(--pink-accent);
+  border-bottom: dotted 1px #00000066;
+  grid-column: span 3;
+  padding: 1rem 0;
+  font-family: var(--title-font);
+  font-size: 1.625rem;
+}
+
+.ticket__location {
+  padding: 1rem 0 2rem 0;
+  font-weight: 600;
+  font-size: 1.125rem;
+  grid-column: span 3;
+  background-color: #00000008;
+  border-bottom: dotted 1px #00000066;
+}
+
+.ticket__date,
+.ticket__start,
+.ticket__end {
+  color: #00000099;
+  border-bottom: dotted 1px #00000066;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  background-color: #0000000f;
+}
+
+.ticket__start {
+  border-left: dotted 1px #00000066;
+  border-right: dotted 1px #00000066;
+}
+.ticket__title:nth-of-type(6) {
+  background-color: #00000017;
+}
+.ticket__seat {
+  background-color: #00000017;
+  grid-column: span 3;
+  color: #00000099;
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding: 0.5rem 0;
+}
+
+.ticket__barcode {
+  font-family: var(--barcode-font);
+  grid-column: 1/-1;
+  justify-self: center;
+  font-size: 6.3125rem;
+  color: #000000cc;
+  font-weight: 400;
+  padding-top: 1.8rem;
+}
+
+.ticket__order-id {
+  grid-column: 1/-1;
+  margin-top: -2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #00000066;
+  letter-spacing: 3px;
+}
+
+.ticket__barcode,
+.ticket__order-id {
+  background-color: #e0e0e0;
+  width: 100%;
+  text-align: center;
+}

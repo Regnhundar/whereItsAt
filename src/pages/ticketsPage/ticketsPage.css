@@ -1,0 +1,8 @@
+.tickets {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    background: var(--gradient);
+    min-height: calc(100vh - 8rem);
+    width: 100%;
+}
