@@ -1,0 +1,21 @@
+.ticket-purchase {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.ticket-purchase__inner-wrapper {
+    grid-column: 2 / span 5;
+    border: 2px solid var(--pink-accent);
+    border-radius: var(--border-radius);
+    margin-bottom: 4.2rem;
+}
+
+.ticket-purchase__total-sum {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 1px 1px var(--pink-accent);
+    padding: 1rem;
+}

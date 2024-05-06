@@ -1,0 +1,15 @@
+.page-title {
+  color: var(--pink-accent);
+  font-family: var(--title-font);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.page-subtitle {
+  color: #ffffffcc;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 200;
+  max-width: 20ch;
+  text-align: center;
+}
