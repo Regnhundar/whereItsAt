@@ -2,6 +2,7 @@ import "./eventsPage.css";
 import { useEffect, useState } from "react";
 import useEventStore from "../../store/event-store";
 import Event from "../../components/event/Event";
+import PageTitle from "../../components/pageTittle/PageTitle";
 
 function EventsPage() {
   const [searchInput, setSearchInput] = useState("");
@@ -36,7 +37,7 @@ function EventsPage() {
 
   return (
     <>
-      <h1 className="page-title">Events</h1>
+      <PageTitle title={"Events"} />
       <input
         className="event-search"
         type="search"

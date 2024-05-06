@@ -2,8 +2,8 @@ import "./button.css";
 
 function Button({
   text = "Button",
-  onClick = (event) => {
-    event.preventDefault();
+  onClick = (e) => {
+    e.preventDefault();
     console.log(`You clicked: ${text}`);
   },
 }) {

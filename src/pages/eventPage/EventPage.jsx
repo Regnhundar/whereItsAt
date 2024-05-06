@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import useEventStore from "../../store/event-store";
 import AddToOrder from "../../components/addToOrder/AddToOrder";
 import { useParams } from "react-router-dom";
+import PageTitle from "../../components/pageTittle/PageTitle";
 
 function EventPage() {
   const { event, setEvent, getEvent } = useEventStore((state) => ({
@@ -42,8 +43,10 @@ function EventPage() {
 
   return (
     <>
-      <h1 className="page-title">Event</h1>
-      <h2 className="page-subtitle">You are about to score some tickets to</h2>
+      <PageTitle
+        title={"Event"}
+        subtitle={"You are about to score some tickets to"}
+      />
       <main className="event-wrapper">
         <article className="event-info">
           <h3 className="event-info__title">{event.name}</h3>

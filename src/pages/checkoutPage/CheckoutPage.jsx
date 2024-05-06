@@ -1,9 +1,8 @@
-import "./checkoutPage.css"
+import PageTitle from "../../components/pageTittle/PageTitle";
+import "./checkoutPage.css";
 
 function CheckoutPage() {
-  return (
-    <div>CheckoutPage</div>
-  )
+  return <PageTitle title={"Order"} />;
 }
 
-export default CheckoutPage
+export default CheckoutPage;
