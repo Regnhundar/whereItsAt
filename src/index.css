@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Barcode+128&display=swap");
 
 @font-face {
   font-family: "Sansita One";
@@ -12,11 +12,13 @@
   --pink-accent: #f56b9a;
   --green-accent: #37aeab;
 
-  --gradient: linear-gradient(180deg, #f56b9a 0%, rgba(177, 52, 254, 0) 100%);
+  --gradient: linear-gradient(180deg, #f56b9a 0, #b134fe00 37vh);
 
   --title-font: "Sansita One", sans-serif;
   --bread-font: "Fira Sans", sans-serif;
+  --barcode-font: "Libre Barcode 128", system-ui;
 
+  --dotted-border: dotted 1px #00000066;
   --border-radius: 3px;
 }
 
@@ -32,6 +34,11 @@ body {
   background-color: var(--primary-bg);
   color: white;
   font-family: var(--bread-font);
+}
+
+.gradient {
+  background: var(--gradient);
+  background-color: var(--primary-bg);
 }
 
 .wrapper {

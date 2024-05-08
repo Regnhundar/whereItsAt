@@ -15,6 +15,8 @@ function Event({ object }) {
 
   const navigate = useNavigate();
 
+  const { paddedDay, monthAbbreviation } = formatEventDate(object.when.date);
+
   const goToEvent = () => {
     let existingEvent = order.findIndex(
       (orderEvent) => orderEvent.id === object.id
@@ -30,8 +32,16 @@ function Event({ object }) {
   return (
     <li className="event" onClick={goToEvent}>
       <p className="event__date">
-        {formatEventDate(object.when.date).toUpperCase()}
+        <span className="event__day">
+          {paddedDay}
+        </span>
+        <span className="event__month">
+          {monthAbbreviation.toUpperCase()}
+        </span>
+
       </p>
+      {/* {formatEventDate(object.when.date).toUpperCase()} */}
+
       <div className="event_inner-wrapper">
         <h2 className="event__title">{object.name}</h2>
         <p className="event__location">{object.where}</p>

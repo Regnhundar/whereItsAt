@@ -43,17 +43,18 @@ function AddToOrder() {
       const updatedOrder = [...order];
       updatedOrder[existingEventIndex].quantity = event.quantity;
       setOrder(updatedOrder);
+      sessionStorage.setItem("order", JSON.stringify(updatedOrder));
     } else {
       setOrder([...order, { ...event }]);
+      sessionStorage.setItem("order", JSON.stringify([...order, { ...event }]));
     }
   };
 
   return (
     <form className="ticket-purchase">
       <div className="ticket-purchase__inner-wrapper">
-        <p className="ticket-purchase__total-sum">{`${
-          event.price * event.quantity
-        } sek`}</p>
+        <p className="ticket-purchase__total-sum">{`${event.price * event.quantity
+          } sek`}</p>
         <TicketHandler
           amount={event.quantity}
           add={addQuantity}

@@ -15,13 +15,21 @@
     border: 1px solid white;
     border-radius: var(--border-radius);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: center;
     text-align: center;
     padding: 1.3rem;
-    font-size: .75rem;
+}
 
+.event__day {
+    font-size: .875rem;
+    font-weight: bold;
+}
+
+.event__month {
+    font-size: .75rem;
 }
 
 .event_inner-wrapper {
