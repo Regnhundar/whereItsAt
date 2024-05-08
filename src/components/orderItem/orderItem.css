@@ -1,0 +1,21 @@
+.order-item {
+  border: 2px solid var(--pink-accent);
+  list-style: none;
+  width: 100%;
+}
+
+.order-item__inner-wrapper {
+  padding: 0.5rem;
+}
+
+.order-item__title {
+  font-family: var(--title-font);
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--pink-accent);
+}
+
+.order-item__when {
+  font-size: 0.875rem;
+  color: var(--green-accent);
+}

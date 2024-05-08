@@ -1,23 +1,65 @@
-import "./eventsPage.css"
-import axios from "axios"
-import { useEffect, useState } from "react"
+import "./eventsPage.css";
+import { useEffect, useState } from "react";
+import useEventStore from "../../store/event-store";
+import Event from "../../components/event/Event";
+import PageTitle from "../../components/pageTittle/PageTitle";
 
 function EventsPage() {
-    const [events, setEvents] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
-    useEffect(() => {
-        axios.get("https://santosnr6.github.io/Data/events.json")
-            .then(response => {
-                setEvents(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, [])
-console.log(events);
-    return (
-        <div>EventsPage</div>
-    )
+  const { events, setEvents, getEvents } = useEventStore((state) => {
+    return {
+      events: state.events,
+      setEvents: state.setEvents,
+      getEvents: state.getEvents,
+    };
+  });
+
+  useEffect(() => {
+    getEvents();
+  }, []);
+
+  useEffect(() => {
+    const filteredEvents = events.filter((event) =>
+      event.name.toLowerCase().includes(searchInput.toLowerCase())
+    );
+
+    if (searchInput.length !== 0) {
+      setEvents(filteredEvents);
+    } else {
+      getEvents();
+    }
+  }, [searchInput]);
+
+  const handleInputChange = (event) => {
+    setSearchInput(event.target.value);
+  };
+
+  return (
+    <>
+      <PageTitle title={"Events"} />
+      <input
+        className="event-search"
+        type="search"
+        aria-label="Search for an event."
+        onChange={handleInputChange}
+        value={searchInput}
+      />
+      {events.length === 0 && searchInput.length !== 0 ? (
+        <h2>
+          <span className="event-highlight">{searchInput} </span>matched no
+          event.
+        </h2>
+      ) : (
+        <ul className="event-list">
+          {Array.isArray(events) &&
+            events.map((event) => {
+              return <Event key={event.id} object={event} />;
+            })}
+        </ul>
+      )}
+    </>
+  );
 }
 
-export default EventsPage
+export default EventsPage;

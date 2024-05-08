@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: calc(100vh - 3rem);
+    min-height: calc(100vh - 7.5rem);
+    text-decoration: none;
 }
 
 .logo__inner-wrapper {
@@ -32,9 +33,10 @@
     letter-spacing: .5px;
     font-weight: 400;
     font-style: italic;
+    color: white;
 }
 
-@media screen and (min-width: 475px){
+@media screen and (min-width: 420px){
     .logo__image {
         width:14rem;
     }
