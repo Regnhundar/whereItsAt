@@ -25,11 +25,11 @@ function App() {
     const savedTickets = sessionStorage.getItem("tickets");
 
     if (savedTickets) {
-      setTickets(JSON.parse(savedTickets))
+      setTickets(JSON.parse(savedTickets));
     }
 
     if (savedOrder) {
-      setOrder(JSON.parse(savedOrder))
+      setOrder(JSON.parse(savedOrder));
     }
   }, []);
 

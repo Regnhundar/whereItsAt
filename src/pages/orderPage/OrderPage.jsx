@@ -11,8 +11,11 @@ function OrderPage() {
     setOrder: state.setOrder,
   }));
 
-  const { setTickets } = useTicketsStore((state) => ({
+  const { setTickets, generateTicketID, tickets, generateTicketSeating } = useTicketsStore((state) => ({
     setTickets: state.setTickets,
+    generateTicketID: state.generateTicketID,
+    generateTicketSeating: state.generateTicketSeating,
+    tickets: state.tickets,
   }));
 
   const sumUpOrder = () => {
@@ -24,11 +27,26 @@ function OrderPage() {
   };
 
   const createTickets = () => {
-    setTickets(order);
-    sessionStorage.removeItem("order");
-    sessionStorage.setItem("tickets", JSON.stringify(order))
+    const ticketsArray = [];
+    order.forEach((orderItem) => {
+      const { seatingSection, firstSeat } = generateTicketSeating();
+
+      for (let i = 0; i < orderItem.quantity; i++) {
+        const ticketID = generateTicketID();
+        const ticket = {
+          ...orderItem, ticketID, info: `Section ${seatingSection} - seat ${firstSeat + i}`
+        };
+        delete ticket.quantity;
+        ticketsArray.push(ticket);
+      }
+    });
+    setTickets([...tickets, ...ticketsArray]);
     setOrder([]);
-  };
+    sessionStorage.removeItem("order");
+    sessionStorage.setItem("tickets", JSON.stringify([...tickets, ...ticketsArray]));
+  }
+
+
   return (
     <>
       <PageTitle title={"Order"} />

@@ -19,7 +19,19 @@ const useTicketsStore = create((set) => ({
             characters[i] = characters[randomNumber];
             characters[randomNumber] = character;
         }
-        return characters.slice(0, 5).join(""); // Med join kan man välja vad som ska vara mellan items i en array. Default är komma. join("") så blir det inget mellanrum.
+        characters.unshift('#');
+        return characters.slice(0, 6).join(""); // Med join kan man välja vad som ska vara mellan items i en array. Default är komma. join("") så blir det inget mellanrum.
+    },
+    generateTicketSeating: () => {
+        const section = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+        const sectionPlacing = Math.floor(Math.random() * section.length);
+        const seatingSection = section[sectionPlacing];
+
+        const firstSeat = Math.floor(Math.random() * 300) + 1;
+
+        return { seatingSection, firstSeat };
+
     },
 
     clearTickets: (e) => {

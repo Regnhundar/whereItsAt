@@ -1,43 +1,42 @@
 import "./ticketsPage.css";
 import useTicketsStore from "../../store/ticket-store";
-import useEventStore from "../../store/event-store";
+import { useEffect } from "react";
 import Ticket from "../../components/ticket/Ticket";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
 
 function TicketsPage() {
-  const { tickets, generateTicketID, clearTickets } = useTicketsStore((state) => ({
+  const { tickets, clearTickets } = useTicketsStore((state) => ({
     tickets: state.tickets,
-    setTickets: state.setTickets,
-    generateTicketID: state.generateTicketID,
-    clearTickets: state.clearTickets
+    clearTickets: state.clearTickets,
+
   }));
 
-  const { formatEventDate } = useEventStore((state) => ({
-    formatEventDate: state.formatEventDate
-  }));
+  useEffect(() => {
+    document.body.classList.add('gradient');
+    return () => {
+      document.body.classList.remove('gradient');
+    };
+  }, []);
 
   const navigate = useNavigate();
-
+  console.log(tickets);
   return (
     <main className="tickets">
 
-      {tickets.map((ticket) => (
-        //Array.from skapar en shallow-copy baserad på något itirerbart. I det här fallet kvantiteten i objektet.
-        //Understrecket, dvs: _ , indikerar att värdet inte används. Enbart index är intressant. Behövs inte skrivas så men är konvention.
-        //Index tas ut för att key ska bli unikt. Kan inte ha ticket.id på flera ur samma objekt.  
-        Array.from({ length: ticket.quantity }).map((_, index) => (
-          <Ticket
-            key={`${ticket.id}-${index}`}
-            what={ticket.name}
-            where={ticket.where}
-            when={formatEventDate(ticket.when.date)}
-            from={ticket.when.from}
-            to={ticket.when.to}
-            seating={"Section X - seat 233"}
-            barcode={`#${generateTicketID()}`}
-          />
-        ))
+      {tickets.map((ticket, index) => (
+        //Index tas ut för att key ska bli unikt. Kan inte ha ticket.id på flera av samma event.  
+        <Ticket
+          key={`${ticket.id}-${index}`}
+          what={ticket.name}
+          where={ticket.where}
+          when={ticket.when.date}
+          from={ticket.when.from}
+          to={ticket.when.to}
+          seating={ticket.info}
+          barcode={ticket.ticketID}
+        />
+
       ))}
 
       {tickets.length !== 0 && (

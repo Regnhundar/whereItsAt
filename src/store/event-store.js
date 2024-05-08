@@ -10,12 +10,12 @@ const useEventStore = create((set) => ({
 
   setEvent: (newEvent) => set({ event: newEvent }),
 
-  formatEventDate: (dateString) => {
-    const [day, monthName] = dateString.split(" ");
+  formatEventDate: (date) => {
+    const [day, monthName] = date.split(" ");
     const paddedDay = String(day).padStart(2, "0");
     const monthAbbreviation = monthName.substring(0, 3);
 
-    return `${paddedDay} ${monthAbbreviation}`;
+    return { paddedDay, monthAbbreviation };
   },
 
   getEvents: () => {

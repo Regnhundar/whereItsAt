@@ -10,6 +10,7 @@ function OrderItem({ orderItem }) {
     }));
 
     const navigate = useNavigate();
+
     const handleOrder = (e, handle) => {
         e.preventDefault();
         const matchingOrder = order.findIndex((item) => item.id === orderItem.id);

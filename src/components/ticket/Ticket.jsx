@@ -1,14 +1,21 @@
 import "./ticket.css";
+import useEventStore from "../../store/event-store";
 
 function Ticket({
     what = "Artistnamn",
     where = "Arenan",
-    when = "Datum",
+    when = "99 Brawnuary",
     from = "Startar",
     to = "Slutar",
-    seating = "Section X - seat 233",
-    barcode = "#A2ED7",
+    seating = "Section X - seat 666",
+    barcode = "#00000",
 }) {
+    const { formatEventDate } = useEventStore((state) => ({
+        formatEventDate: state.formatEventDate
+    }));
+
+    const { paddedDay, monthAbbreviation } = formatEventDate(when);
+
     return (
         <article className="ticket">
             <h2 className="ticket__title">WHAT</h2>
@@ -16,7 +23,7 @@ function Ticket({
             <h2 className="ticket__title">WHERE</h2>
             <p className="ticket__location">{where}</p>
             <h2 className="ticket__title ticket__title--first">WHEN</h2>
-            <p className="ticket__date">{when}</p>
+            <p className="ticket__date">{`${paddedDay} ${monthAbbreviation}`}</p>
             <h2 className="ticket__title ticket__title--second">FROM</h2>
             <p className="ticket__start">{from}</p>
             <h2 className="ticket__title ticket__title--third">TO</h2>
