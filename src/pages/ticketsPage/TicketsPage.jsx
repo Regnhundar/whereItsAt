@@ -20,7 +20,6 @@ function TicketsPage() {
   }, []);
 
   const navigate = useNavigate();
-  console.log(tickets);
   return (
     <main className="tickets">
 

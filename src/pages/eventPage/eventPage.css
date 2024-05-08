@@ -5,13 +5,14 @@
   height: 100%;
   width: 100%;
 }
+
 .event-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   row-gap: 0.5rem;
-  margin: 3rem 0 7rem 0;
+  margin: 3rem 0 5rem 0;
 }
 
 .event-info__title {

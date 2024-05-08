@@ -1,17 +1,36 @@
-
 .navigation {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     position: fixed;
     bottom: 0;
     width: 100%;
     padding: 1rem 2rem;
-    margin-top: 10rem;
     max-width: 500px;
     background-color: var(--primary-bg);
 }
 
 .navigation__link {
-    color: white;
+    color: rgba(255, 255, 255, 0.639);
     text-decoration: none;
+    font-size: .875rem;
+}
+
+.navigation__link--left {
+    grid-column: 1 / span 1;
+}
+
+.navigation__link--middle {
+    grid-column: 2 / span 1;
+    justify-self: center;
+}
+
+.navigation__link--right {
+    grid-column: 3 / span 1;
+    justify-self: end;
+}
+
+.navigation__link--active {
+    color: white;
+    box-shadow: 0 2px 0 0 var(--pink-accent);
+    width: fit-content
 }

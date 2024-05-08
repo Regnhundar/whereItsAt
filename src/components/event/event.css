@@ -5,22 +5,17 @@
     width: 100%;
     column-gap: 1.5rem;
     cursor: pointer;
-
 }
 
 .event__date {
-    grid-row: span 3;
     aspect-ratio: 1;
-    width: 66px;
+    width: 71px;
     border: 1px solid white;
     border-radius: var(--border-radius);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    align-self: center;
-    text-align: center;
-    padding: 1.3rem;
 }
 
 .event__day {
