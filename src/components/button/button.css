@@ -11,3 +11,7 @@
   margin-block-end: auto;
   cursor: pointer;
 }
+
+.button--big-margin {
+  margin: 1rem 0;
+}

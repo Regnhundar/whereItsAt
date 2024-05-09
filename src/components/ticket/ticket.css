@@ -9,9 +9,7 @@
   color: #000000b2;
 }
 
-.ticket:first-of-type {
-  margin-top: 6.8125rem;
-}
+
 
 .ticket:last-of-type {
   margin-bottom: 2rem;
