@@ -1,3 +1,3 @@
 # React + Vite
 
-useLocation, useNavigation,
+useLocation, useNavigation, swiper

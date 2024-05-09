@@ -7,12 +7,7 @@
   box-shadow: 0px 0px 32px 0px #00000057;
   background-color: white;
   color: #000000b2;
-}
-
-
-
-.ticket:last-of-type {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Den här selektorn väljer alla element inuti föräldern men inte föräldern själv */

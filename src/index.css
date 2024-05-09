@@ -52,7 +52,7 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding: 2.1rem 2.5rem 0 2.5rem;
+  padding: 2rem;
 }
 
 .swiper {
@@ -84,8 +84,8 @@ body {
   margin-bottom: 2.5rem;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 375px) {
   .wrapper {
-    padding: 2.1rem 1rem;
+    padding: 2.1rem 1.5rem;
   }
 }

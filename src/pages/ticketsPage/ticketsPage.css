@@ -10,14 +10,9 @@
 .swiper-horizontal>.swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
     position: relative;
-
 }
 
 .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-    background: var(--pink-accent);
-}
-
-.swiper-pagination-bullet-active {
     background: var(--pink-accent);
 }

@@ -10,8 +10,9 @@
   border-radius: var(--border-radius);
   margin-block-end: auto;
   cursor: pointer;
+  margin-bottom: 1.3rem;
 }
 
-.button--big-margin {
-  margin: 1rem 0;
+.button--margin-top {
+  margin-top: .5rem;
 }

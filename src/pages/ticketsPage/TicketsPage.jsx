@@ -30,14 +30,12 @@ function TicketsPage() {
   const navigate = useNavigate();
   return (
     <main className="tickets">
-      {tickets.length > 0 && (
+      {tickets.length > 0 ? (
         <Swiper
           modules={[Pagination, EffectCards]}
-          pagination={{ clickable: true, dynamicBullets: true, dynamicMainBullets: 10 }}
+          pagination={{ clickable: true, dynamicBullets: true, dynamicMainBullets: 5 }}
           effect={'cards'}
-          cardsEffect={{ perSlideOffset: 3, perSlideRotate: 1 }}
-          slidesPerView={1}
-          grabCursor={true}
+          cardsEffect={{ perSlideOffset: 1, perSlideRotate: 1 }}
         >
           {tickets.map((ticket, index) => (
             //Tar ut index för att göra key unikt. Då vi kan ha flera biljetter med samma ID behövs något extra.
@@ -54,7 +52,7 @@ function TicketsPage() {
             </SwiperSlide>
           ))}
         </Swiper>
-      )
+      ) : (<h1>You have no tickets.</h1>)
       }
 
       {

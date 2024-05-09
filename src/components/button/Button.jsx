@@ -9,7 +9,7 @@ function Button({
   margin = ""
 }) {
 
-  const extraMargin = margin === "big" ? "button button--big-margin" : "button";
+  const extraMargin = margin === "big" ? "button button--margin-top" : "button";
   return (
     <button className={extraMargin} onClick={onClick}>
       {text}

@@ -24,7 +24,7 @@ function Event({ object }) {
     if (existingEvent !== -1) {
       setEvent({ ...order[existingEvent] });
     } else {
-      setEvent({ ...object, quantity: 1 });
+      setEvent({ ...object, quantity: 0 });
     }
     navigate(`/event/${object.id}`);
   };

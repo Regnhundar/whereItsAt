@@ -28,7 +28,7 @@ function AddToOrder() {
 
   const removeQuantity = (e) => {
     e.preventDefault();
-    if (event.quantity > 1) {
+    if (event.quantity > 0) {
       const newQuantity = event.quantity - 1;
       setEvent({ ...event, quantity: newQuantity });
     }
