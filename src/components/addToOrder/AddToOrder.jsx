@@ -34,20 +34,41 @@ function AddToOrder() {
     }
   };
 
-  const addToOrder = (e) => {
+  const handleOrder = (e) => {
     e.preventDefault();
     const existingEventIndex = order.findIndex(
       (orderEvent) => orderEvent.id === event.id
     );
     if (existingEventIndex !== -1) {
-      const updatedOrder = [...order];
-      updatedOrder[existingEventIndex].quantity = event.quantity;
+      let updatedOrder = [...order];
+      if (event.quantity === 0) {
+        updatedOrder = updatedOrder.filter((_, index) => index !== existingEventIndex);
+      } else {
+        updatedOrder[existingEventIndex].quantity = event.quantity;
+      }
       setOrder(updatedOrder);
       sessionStorage.setItem("order", JSON.stringify(updatedOrder));
-    } else {
+    } else if (event.quantity > 0) {
       setOrder([...order, { ...event }]);
       sessionStorage.setItem("order", JSON.stringify([...order, { ...event }]));
     }
+  };
+
+  const customizeButton = () => {
+    const existingEvent = order.find((orderEvent) => orderEvent.id === event.id);
+
+    if (existingEvent) {
+      if (event.quantity === 0) {
+        return { buttonText: "Ta bort från order", color: "red" };
+      }
+      return existingEvent.quantity === event.quantity
+        ? { buttonText: "Redan i din order", color: "gray" }
+        : { buttonText: "Uppdatera order", color: "green" };
+    }
+
+    return event.quantity > 0
+      ? { buttonText: "Lägg i varukorgen", color: "green" }
+      : { buttonText: "none", color: "" };
   };
 
   return (
@@ -61,7 +82,14 @@ function AddToOrder() {
           remove={removeQuantity}
         />
       </div>
-      <Button text="Lägg i varukorgen" onClick={addToOrder} />
+      {customizeButton().buttonText !== "none" &&
+        <Button
+          text={customizeButton().buttonText}
+          color={customizeButton().color}
+          onClick={handleOrder}
+        />
+      }
+
     </form>
   );
 }

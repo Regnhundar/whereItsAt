@@ -35,7 +35,8 @@ function TicketsPage() {
           modules={[Pagination, EffectCards]}
           pagination={{ clickable: true, dynamicBullets: true, dynamicMainBullets: 5 }}
           effect={'cards'}
-          cardsEffect={{ perSlideOffset: 1, perSlideRotate: 1 }}
+          cardsEffect={{ perSlideOffset: 2, perSlideRotate: 1 }}
+
         >
           {tickets.map((ticket, index) => (
             //Tar ut index för att göra key unikt. Då vi kan ha flera biljetter med samma ID behövs något extra.
@@ -58,9 +59,10 @@ function TicketsPage() {
       {
         tickets.length !== 0 && (
           <Button
-            text="Delete tickets"
+            text="Radera biljetter"
             onClick={(e) => { clearTickets(e); navigate(`/events`); }}
-            margin="big"
+            margin="margin"
+            color="red"
           />
         )
       }

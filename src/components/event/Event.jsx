@@ -40,7 +40,6 @@ function Event({ object }) {
         </span>
 
       </p>
-      {/* {formatEventDate(object.when.date).toUpperCase()} */}
 
       <div className="event_inner-wrapper">
         <h2 className="event__title">{object.name}</h2>

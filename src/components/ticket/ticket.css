@@ -8,6 +8,7 @@
   background-color: white;
   color: #000000b2;
   margin-bottom: 1.5rem;
+  user-select: none;
 }
 
 /* Den här selektorn väljer alla element inuti föräldern men inte föräldern själv */

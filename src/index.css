@@ -44,6 +44,7 @@ body {
 
 .gradient {
   background: var(--gradient);
+  background-repeat: no-repeat;
   background-color: var(--primary-bg);
 }
 
