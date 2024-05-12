@@ -4,7 +4,7 @@ function Button({
   text = "Button",
   onClick = (e) => { e.preventDefault(); console.log(`You clicked: ${text}`); },
   margin = "",
-  color = "green"
+  color = "turquoise"
 }) {
 
   const extraMargin = margin === "margin" ? "button button--margin-top" : "button";

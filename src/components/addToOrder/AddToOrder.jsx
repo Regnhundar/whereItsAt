@@ -71,7 +71,7 @@ function AddToOrder() {
         return { buttonText: "Ta bort från order", color: "red" };
       }
       return existingEvent.quantity === event.quantity
-        ? { buttonText: "Gå till order", color: "dark-green" }
+        ? { buttonText: "Gå till order", color: "green" }
         : { buttonText: "Uppdatera order" };
     }
 
