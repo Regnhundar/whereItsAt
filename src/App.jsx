@@ -10,7 +10,7 @@ import useTicketsStore from "./store/ticket-store";
 import useOrderStore from "./store/order-store";
 
 function App() {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   const { setOrder } = useOrderStore((state) => ({
     setOrder: state.setOrder,
@@ -42,7 +42,7 @@ function App() {
         <Route path="/order" element={<OrderPage />} />
         <Route path="/tickets" element={<TicketsPage />} />
       </Routes>
-      {location.pathname !== "/" && <Navigation />}
+      {pathname !== "/" && <Navigation />}
     </>
   );
 }

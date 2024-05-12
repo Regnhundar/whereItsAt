@@ -4,13 +4,14 @@ import useOrderStore from "../../store/order-store";
 import Button from "../button/Button";
 import TicketHandler from "../ticketHandler/TicketHandler";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddToOrder() {
   const { event, setEvent } = useEventStore((state) => ({
     event: state.event,
     setEvent: state.setEvent,
   }));
-
+  const navigate = useNavigate();
   const { order, setOrder } = useOrderStore((state) => ({
     order: state.order,
     setOrder: state.setOrder,
@@ -34,24 +35,32 @@ function AddToOrder() {
     }
   };
 
+
   const handleOrder = (e) => {
     e.preventDefault();
+    const buttonText = customizeButton().buttonText;
     const existingEventIndex = order.findIndex(
       (orderEvent) => orderEvent.id === event.id
     );
-    if (existingEventIndex !== -1) {
-      let updatedOrder = [...order];
-      if (event.quantity === 0) {
+    let updatedOrder = [...order];
+    switch (buttonText) {
+      case "Ta bort från order":
         updatedOrder = updatedOrder.filter((_, index) => index !== existingEventIndex);
-      } else {
+        break;
+      case "Gå till order":
+        navigate("/order")
+        return;
+      case "Uppdatera order":
         updatedOrder[existingEventIndex].quantity = event.quantity;
-      }
-      setOrder(updatedOrder);
-      sessionStorage.setItem("order", JSON.stringify(updatedOrder));
-    } else if (event.quantity > 0) {
-      setOrder([...order, { ...event }]);
-      sessionStorage.setItem("order", JSON.stringify([...order, { ...event }]));
+        break;
+      case "Lägg till i order":
+        updatedOrder.push({ ...event });
+        break;
+      default:
+        return;
     }
+    setOrder(updatedOrder);
+    sessionStorage.setItem("order", JSON.stringify(updatedOrder));
   };
 
   const customizeButton = () => {
@@ -62,13 +71,13 @@ function AddToOrder() {
         return { buttonText: "Ta bort från order", color: "red" };
       }
       return existingEvent.quantity === event.quantity
-        ? { buttonText: "Redan i din order", color: "gray" }
-        : { buttonText: "Uppdatera order", color: "green" };
+        ? { buttonText: "Gå till order", color: "dark-green" }
+        : { buttonText: "Uppdatera order" };
     }
 
     return event.quantity > 0
-      ? { buttonText: "Lägg i varukorgen", color: "green" }
-      : { buttonText: "none", color: "" };
+      ? { buttonText: "Lägg till i order" }
+      : { buttonText: "" };
   };
 
   return (
@@ -82,7 +91,7 @@ function AddToOrder() {
           remove={removeQuantity}
         />
       </div>
-      {customizeButton().buttonText !== "none" &&
+      {customizeButton().buttonText !== "" &&
         <Button
           text={customizeButton().buttonText}
           color={customizeButton().color}

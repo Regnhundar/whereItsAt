@@ -8,12 +8,13 @@
     max-width: 500px;
     background-color: var(--primary-bg);
     z-index: 999999;
+
 }
 
 .navigation__link {
     color: rgba(255, 255, 255, 0.639);
+    width: fit-content;
     text-decoration: none;
-    font-size: .875rem;
 }
 
 .navigation__link--left {
@@ -33,5 +34,34 @@
 .navigation__link--active {
     color: white;
     box-shadow: 0 2px 0 0 var(--pink-accent);
-    width: fit-content
+
+}
+
+.navigation__link--appear {
+    animation: appear .8s ease-in;
+}
+
+@keyframes appear {
+    0% {
+        color: white;
+        background-color: var(--primary-bg);
+        text-shadow: 1px 1px var(--pink-accent);
+        scale: .5;
+        transform: rotateY(0) translateY(0);
+        font-weight: 400;
+    }
+
+    50% {
+        scale: 2;
+        transform: rotateY(360deg) translateY(-3px);
+        font-weight: 900;
+    }
+
+    100% {
+        color: rgba(255, 255, 255, 0.639);
+        text-shadow: none;
+        scale: 1;
+        transform: rotateY(0) translateY(0);
+        font-weight: 400;
+    }
 }

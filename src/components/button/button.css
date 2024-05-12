@@ -29,11 +29,6 @@
   background-color: var(--green-accent);
 }
 
-.button--gray {
-  background-color: #666a6a;
-  cursor: default;
-}
-
-.button--gray:active {
-  scale: 1;
+.button--dark-green {
+  background-color: #347b28;
 }

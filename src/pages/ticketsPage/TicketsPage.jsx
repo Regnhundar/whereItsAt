@@ -10,8 +10,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
 
-
-
 function TicketsPage() {
 
   const { tickets, clearTickets } = useTicketsStore((state) => ({
@@ -33,9 +31,9 @@ function TicketsPage() {
       {tickets.length > 0 ? (
         <Swiper
           modules={[Pagination, EffectCards]}
-          pagination={{ clickable: true, dynamicBullets: true, dynamicMainBullets: 5 }}
+          pagination={{ clickable: true, dynamicBullets: true, dynamicMainBullets: 10 }}
           effect={'cards'}
-          cardsEffect={{ perSlideOffset: 2, perSlideRotate: 1 }}
+          cardsEffect={{ perSlideOffset: 1, perSlideRotate: 0 }}
 
         >
           {tickets.map((ticket, index) => (
