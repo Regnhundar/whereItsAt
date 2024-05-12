@@ -7,7 +7,7 @@ function Ticket({
     when = "99 Brawnuary",
     from = "Startar",
     to = "Slutar",
-    seating = "Section X - seat 666",
+    seating = "Section - seat ",
     barcode = "#00000",
 }) {
     const { formatEventDate } = useEventStore((state) => ({
