@@ -4,8 +4,14 @@ import { useEffect } from "react";
 import Ticket from "../../components/ticket/Ticket";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, EffectCards } from "swiper/modules";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-cards';
 
 function TicketsPage() {
+
   const { tickets, clearTickets } = useTicketsStore((state) => ({
     tickets: state.tickets,
     clearTickets: state.clearTickets,
@@ -20,30 +26,45 @@ function TicketsPage() {
   }, []);
 
   const navigate = useNavigate();
-  console.log(tickets);
   return (
     <main className="tickets">
+      {tickets.length > 0 ? (
+        <Swiper
+          modules={[Pagination, EffectCards]}
+          pagination={{ clickable: true, dynamicBullets: true, dynamicMainBullets: 10 }}
+          effect={'cards'}
+          cardsEffect={{ perSlideOffset: 1, perSlideRotate: 0 }}
 
-      {tickets.map((ticket, index) => (
-        //Index tas ut för att key ska bli unikt. Kan inte ha ticket.id på flera av samma event.  
-        <Ticket
-          key={`${ticket.id}-${index}`}
-          what={ticket.name}
-          where={ticket.where}
-          when={ticket.when.date}
-          from={ticket.when.from}
-          to={ticket.when.to}
-          seating={ticket.info}
-          barcode={ticket.ticketID}
-        />
+        >
+          {tickets.map((ticket, index) => (
+            //Tar ut index för att göra key unikt. Då vi kan ha flera biljetter med samma ID behövs något extra.
+            <SwiperSlide key={`${ticket.id}-${index}`}>
+              <Ticket
+                what={ticket.name}
+                where={ticket.where}
+                when={ticket.when.date}
+                from={ticket.when.from}
+                to={ticket.when.to}
+                seating={ticket.info}
+                barcode={ticket.ticketID}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      ) : (<h1>You have no tickets.</h1>)
+      }
 
-      ))}
-
-      {tickets.length !== 0 && (
-        <Button
-          text="Delete tickets"
-          onClick={(e) => { clearTickets(e); navigate(`/events`); }} />)}
-    </main>
+      {
+        tickets.length !== 0 && (
+          <Button
+            text="Radera biljetter"
+            onClick={(e) => { clearTickets(e); navigate(`/events`); }}
+            margin="margin"
+            color="red"
+          />
+        )
+      }
+    </main >
   );
 }
 

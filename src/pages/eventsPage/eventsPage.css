@@ -1,6 +1,5 @@
-
 .event-search {
-    border:none;
+    border: none;
     border-radius: var(--border-radius);
     width: 100%;
     min-height: 40px;
@@ -13,9 +12,13 @@
     background-repeat: no-repeat;
     background-position: 1rem;
 }
+
 .event-search:focus {
     background-image: none;
+    border: 2px solid var(--pink-accent);
+    outline: var(--pink-accent);
 }
+
 .event-list {
     display: flex;
     flex-direction: column;

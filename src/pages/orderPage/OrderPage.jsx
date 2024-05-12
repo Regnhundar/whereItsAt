@@ -4,6 +4,7 @@ import "./orderPage.css";
 import useOrderStore from "../../store/order-store";
 import useTicketsStore from "../../store/ticket-store";
 import Button from "../../components/button/Button";
+import { useNavigate } from "react-router-dom";
 
 function OrderPage() {
   const { order, setOrder } = useOrderStore((state) => ({
@@ -17,6 +18,8 @@ function OrderPage() {
     generateTicketSeating: state.generateTicketSeating,
     tickets: state.tickets,
   }));
+
+  const navigate = useNavigate();
 
   const sumUpOrder = () => {
     let totalAmount = 0;
@@ -44,6 +47,7 @@ function OrderPage() {
     setOrder([]);
     sessionStorage.removeItem("order");
     sessionStorage.setItem("tickets", JSON.stringify([...tickets, ...ticketsArray]));
+    navigate("/tickets");
   }
 
 
@@ -62,7 +66,7 @@ function OrderPage() {
           <Button text={"Skicka order"} onClick={createTickets} />
         </>
       ) : (
-        <h2 className="order-thanks">Thank you for your order!</h2>
+        <h2 className="order-thanks">So empty! :)</h2>
       )}
     </>
   );

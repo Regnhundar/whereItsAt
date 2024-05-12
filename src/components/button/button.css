@@ -5,9 +5,30 @@
   color: white;
   font-size: 1.375rem;
   font-weight: 600;
-  background-color: var(--green-accent);
   border: none;
   border-radius: var(--border-radius);
   margin-block-end: auto;
   cursor: pointer;
+  margin-bottom: 1.3rem;
+  transition: all .1s linear;
+}
+
+.button--margin-top {
+  margin-top: .5rem;
+}
+
+.button:active {
+  scale: .99;
+}
+
+.button--red {
+  background-color: #ae3737;
+}
+
+.button--green {
+  background-color: var(--green-accent);
+}
+
+.button--dark-green {
+  background-color: #347b28;
 }
