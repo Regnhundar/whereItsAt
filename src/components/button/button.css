@@ -25,10 +25,10 @@
   background-color: #ae3737;
 }
 
-.button--green {
+.button--turquoise {
   background-color: var(--green-accent);
 }
 
-.button--dark-green {
-  background-color: #347b28;
+.button--green {
+  background-color: #3eae37;
 }
